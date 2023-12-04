@@ -267,8 +267,7 @@ body {
     border-radius: 5px;
     z-index: -1;
 }
-.about .learn-more-link:hover::after,
-.about .learn-more-link:focus::after {
+.about .learn-more-link:is(:hover, :focus)::after {
     opacity: 1;
 }
 .about-brand-content .learn-more-link::after {
