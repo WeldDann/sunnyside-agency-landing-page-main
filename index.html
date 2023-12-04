@@ -24,7 +24,7 @@
       <!-- Navigation -->
       <nav class="navigation">
         <!-- Mobile Menu Toggle -->
-        <button class="nav-toggle">
+        <button class="menu-toggle">
           <svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M24 16v2H0v-2h24zm0-8v2H0V8h24zm0-8v2H0V0h24z" fill="#FFF" fill-rule="evenodd"/></svg>
         </button>
 
@@ -46,16 +46,16 @@
         <!-- Mobile Menu Script -->
         <script>
           const navContainer = document.querySelector(".nav-container"),
-          navToggle = document.querySelector(".nav-toggle");
+          menuToggle = document.querySelector(".menu-toggle");
           
           // Toggles mobile navigation menu on toggle click
-          navToggle.onclick = () => {
-            if (navToggle.classList.contains("expanded")) {
-              navContainer.classList.remove("expanded");
-              navToggle.classList.remove("expanded");
+          menuToggle.onclick = () => {
+            if (menuToggle.classList.contains("active")) {
+              navContainer.classList.remove("active");
+              menuToggle.classList.remove("active");
             } else {
-              navContainer.classList.add("expanded");
-              navToggle.classList.add("expanded");
+              navContainer.classList.add("active");
+              menuToggle.classList.add("active");
             }
           }
         </script>
