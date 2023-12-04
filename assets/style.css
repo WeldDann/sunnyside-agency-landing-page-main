@@ -207,21 +207,11 @@ body {
 }
 
 /* About */
-.about > div {
-    display: flex;
-    flex-wrap: wrap;
+.about {
+    display: grid;
 }
-.about > div > * {
-    flex-basis: 350px;
-    flex-grow: 1;
-}
-.about-brand {
-    flex-direction: row-reverse;
-}
-
 /* 'Transform Brand' / 'Audience' Sub Sections */
-.about-brand-image,
-.about-audience-image {
+.about-brand-image, .about-audience-image {
     overflow: hidden;
 }
 :is(.about-brand-image, .about-audience-image) img {
@@ -232,21 +222,18 @@ body {
 .about-audience-image img {
     object-position: bottom;
 }
-.about-brand-content,
-.about-audience-content {
-    padding: max(32px, 10%);
+.about-brand-content, .about-audience-content {
+    padding: max(32px, 20%);
+    text-align: center;
 }
-.about-brand-content > *:not(:last-child),
-.about-audience-content > *:not(:last-child) {
+:is(.about-brand-content, .about-audience-content) > *:not(:last-child) {
     margin-bottom: 32px;
 }
-.about-brand-content h1,
-.about-audience-content h1 {
+:is(.about-brand-content, .about-audience-content) h1 {
     font-family: 'Fraunces Bold';
     font-size: 2em;
 }
-.about-brand-content p,
-.about-audience-content p {
+:is(.about-brand-content, .about-audience-content) p {
     color: var(--grayish-blue);
 }
 .about .learn-more-link {
@@ -276,11 +263,22 @@ body {
 .about-audience-content .learn-more-link::after {
     background-color: var(--soft-red);
 }
-@media screen and (max-width: 699px) {
-    .about-brand-content,
-    .about-audience-content {
-        text-align: center;
+
+@media screen and (min-width: 700px) {
+    .about {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:  'content image';
     }
+    .about-brand-content {
+        grid-area: content;
+    }
+    .about-brand-image {
+        grid-area: image;
+    }
+    .about-brand-content, .about-audience-content {
+        text-align: start;
+    }
+
 }
 
 /* 'Graphic Design' / 'Photography' Sub Sections */
@@ -297,7 +295,7 @@ body {
 .photography {
     background-image: url(./images/desktop/image-photography.jpg);
 }
-.graph-photo > div > * {
+:is(.graphic-design, .photography) > * {
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -307,7 +305,7 @@ body {
 .photography > * {
     color: var(--dark-blue);
 }
-.graph-photo > div h1 {
+:is(.graphic-design, .photography) h1 {
     font-family: 'Fraunces Bold';
 }
 
